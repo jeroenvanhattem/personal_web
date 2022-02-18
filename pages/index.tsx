@@ -1,8 +1,68 @@
+import { Flex, Heading } from '@chakra-ui/react'
 import type { NextPage } from 'next'
+import TextLoop from "react-text-loop"
+import Header from '../components/Header/Header'
 
 const Home: NextPage = () => {
   return (
-    <h1>Waddup</h1>
+    <Flex
+      flexDir='column'
+      h='100vh'
+      w='100vw'
+      minH='100vh'
+      maxW='100vw'
+      justify='center'
+      align='center'
+      bgColor='brand.background'
+      color='brand.black'
+    >
+      <Flex
+        flexDir='column'
+        w='90%'
+        minH='100%'
+        h='100vw'
+        maxW='2000px'
+      >
+        <Header />
+        <Flex
+          h='100%'
+          w='100%'
+          py={24}
+        >
+          <Flex
+            flexDir='column'
+          >
+
+            <Heading
+              fontSize={18}
+            >
+              NOT JUST
+            </Heading>
+            <Heading
+              fontSize={128}
+            >
+              <TextLoop>
+                <span>
+                  A WEB <br />
+                  DEVELOPER
+                </span>
+                <span>
+                  A RAPPER
+                </span>
+                <span>
+                  A SPORTS <br />
+                  MAN
+                </span>
+                <span>
+                  ICONIC
+                </span>
+              </TextLoop>
+            </Heading>
+
+          </Flex>
+        </Flex>
+      </Flex>
+    </Flex >
   )
 }
 
