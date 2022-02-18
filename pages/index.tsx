@@ -33,11 +33,15 @@ const Home: NextPage = () => {
           h='100%'
           w='100%'
           py={24}
+          flexDir='column'
+          pos='relative'
         >
+          {/* TEXTLOOP */}
           <Flex
             flexDir='column'
             w='100%'
-            align={{ base: 'center', xl: 'unset' }}
+            align={{ base: 'center', lg: 'unset' }}
+            mt={24}
           >
 
             <Heading
@@ -48,39 +52,56 @@ const Home: NextPage = () => {
             <TextLoop>
               <Heading
                 fontSize={{ base: 36, xl: 128 }}
-                textAlign='center'
+                textAlign={{ base: 'center', lg: 'unset' }}
               >
                 A WEB <br />
                 DEVELOPER
               </Heading>
               <Heading
                 fontSize={{ base: 36, xl: 128 }}
-                textAlign='center'
+                textAlign={{ base: 'center', lg: 'unset' }}
               >
                 PASSIONATE
               </Heading>
               <Heading
                 fontSize={{ base: 36, xl: 128 }}
-                textAlign='center'
+                textAlign={{ base: 'center', lg: 'unset' }}
               >
                 A MUSICIAN
               </Heading>
               <Heading
                 fontSize={{ base: 36, xl: 128 }}
-                textAlign='center'
+                textAlign={{ base: 'center', lg: 'unset' }}
               >
                 ICONIC
               </Heading>
               <Heading
                 fontSize={{ base: 36, xl: 128 }}
-                textAlign='center'
+                textAlign={{ base: 'center', lg: 'unset' }}
               >
                 PERFECTIONISTIC
               </Heading>
             </TextLoop>
+          </Flex>
+
+          <Flex
+            flexDir='column'
+            pos='absolute'
+            w='100%'
+            bottom={24}
+            align='flex-end'
+            textAlign='right'
+          >
+            <Heading
+              fontSize={{ base: 36, xl: 128 }}
+              textAlign={{ base: 'center', lg: 'unset' }}
+            >
+              JEROEN  <br />
+              VAN HATTEM
+            </Heading>
+          </Flex>
         </Flex>
       </Flex>
-    </Flex>
     </Flex >
   )
 }
