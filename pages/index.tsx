@@ -1,4 +1,9 @@
-import { Flex, Heading } from '@chakra-ui/react'
+import {
+  Flex,
+  Heading,
+  Wrap,
+  Text
+} from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import TextLoop from "react-text-loop"
 import Header from '../components/Header/Header'
@@ -21,7 +26,7 @@ const Home: NextPage = () => {
         w='90%'
         minH='100%'
         h='100vw'
-        maxW='2000px'
+        maxW={{ base: '100vw', xl: '2000px' }}
       >
         <Header />
         <Flex
@@ -31,6 +36,8 @@ const Home: NextPage = () => {
         >
           <Flex
             flexDir='column'
+            w='100%'
+            align={{ base: 'center', xl: 'unset' }}
           >
 
             <Heading
@@ -38,30 +45,42 @@ const Home: NextPage = () => {
             >
               NOT JUST
             </Heading>
-            <Heading
-              fontSize={128}
-            >
-              <TextLoop>
-                <span>
-                  A WEB <br />
-                  DEVELOPER
-                </span>
-                <span>
-                  A RAPPER
-                </span>
-                <span>
-                  A SPORTS <br />
-                  MAN
-                </span>
-                <span>
-                  ICONIC
-                </span>
-              </TextLoop>
-            </Heading>
-
-          </Flex>
+            <TextLoop>
+              <Heading
+                fontSize={{ base: 36, xl: 128 }}
+                textAlign='center'
+              >
+                A WEB <br />
+                DEVELOPER
+              </Heading>
+              <Heading
+                fontSize={{ base: 36, xl: 128 }}
+                textAlign='center'
+              >
+                PASSIONATE
+              </Heading>
+              <Heading
+                fontSize={{ base: 36, xl: 128 }}
+                textAlign='center'
+              >
+                A MUSICIAN
+              </Heading>
+              <Heading
+                fontSize={{ base: 36, xl: 128 }}
+                textAlign='center'
+              >
+                ICONIC
+              </Heading>
+              <Heading
+                fontSize={{ base: 36, xl: 128 }}
+                textAlign='center'
+              >
+                PERFECTIONISTIC
+              </Heading>
+            </TextLoop>
         </Flex>
       </Flex>
+    </Flex>
     </Flex >
   )
 }

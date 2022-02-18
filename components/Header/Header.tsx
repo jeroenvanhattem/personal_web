@@ -1,67 +1,59 @@
 import {
   Flex,
   Text,
+  useDisclosure,
+  useMediaQuery,
+  useOutsideClick,
   Wrap
 } from "@chakra-ui/react"
 import 'font-proxima-nova/style.css'
+import { ArrowLeft, Menu as MenuIcon } from "react-feather"
+import { useRef } from "react"
+import Drawer from "./Drawer"
+import Menu from "./Menu"
 
 const Header = () => {
+  const ref = useRef<HTMLDivElement>(null)
+  const drawerDisclosure = useDisclosure()
+  const [isOnDesktop] = useMediaQuery("(min-width: 1200px)")
+
+  useOutsideClick({
+    ref,
+    handler: drawerDisclosure.onClose,
+  })
+
   return (
     <Flex
-      h={20}
+      minH={20}
       w='100%'
+      maxW='100%'
       bgColor='brand.background'
       justify='center'
     >
       <Flex
         w='100%'
-        justify='center'
+        align='center'
+        flexDir={{ base: 'column', xl: 'row' }}
       >
         <Flex
-          w='300px'
+          w={{ base: '100%', xl: '300px' }}
+          justify={{ base: 'center', xl: 'unset' }}
+          mt={{ base: 4, xl: 'unset' }}
         >
           <Flex
             lineHeight='80px'
             verticalAlign='middle'
-            px={2}
-            zIndex={2}
             fontSize={24}
           >
-            <Text color='brand.black' fontWeight={600}>
+            <Text color='brand.black' fontWeight={500}>
               Jeroen van Hattem
             </Text>
           </Flex>
         </Flex>
 
-        <Flex
-          lineHeight='80px'
-          verticalAlign='middle'
-          flexGrow={1}
-          justify='center'
-          fontWeight={600}
-          color='brand.black' 
-        >
-          <Wrap
-            spacing={16}
-            justify='center'
-          >
-            <Text>
-              HOME
-            </Text>
-            <Text>
-              WORK
-            </Text>
-            <Text>
-              ABOUT
-            </Text>
-            <Text>
-              SKILLS
-            </Text>
-            <Text>
-              CONTACT
-            </Text>
-          </Wrap>
-        </Flex>
+        {!isOnDesktop && <MenuIcon onClick={() => drawerDisclosure.onToggle()} cursor='pointer' color='black' size={64} />}
+        <Menu d={{ base: 'none', lg: 'unset' }} />
+        {drawerDisclosure.isOpen && <Drawer drawerDisclosure={drawerDisclosure} />}
 
 
         <Flex
